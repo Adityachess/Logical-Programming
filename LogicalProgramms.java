@@ -4,23 +4,42 @@ import java.util.Scanner;
 
 public class LogicalProgramms {
 
-	public static void main(String[] args) {
+	static boolean check(int number) {
 
-		int number, sum = 0;
-		System.out.println("enter the number:");
-		
-		Scanner sc = new Scanner(System.in);
-		number = sc.nextInt();
-		for (int i = 1; i < number; i++) {
-			if (number % i == 0) {
-				sum = sum + i;
+		// Returning false when the number is either 0 or 1 because 0 and 1 cannot be
+		// prime numbers
+
+		if (number == 0 || number == 1) {
+
+			return false;
+
+		} else {
+
+			// When the number is not 0 and 1
+
+			for (int i = 2; i <= number / 2; i++) {
+
+				if (number % i == 0) {
+
+					return false;
+
+				}
 			}
-		}
-		if (number == sum)
-			System.out.println("Number is a perfect Sqarenumber");
-		else
-			System.out.println("Number is not a perfect Squarenumber");
 
+			return true;
+
+		}
 	}
 
+	public static void main(String[] args) {
+
+		for (int i = 0; i <= 50; i++) {
+
+			if (check(i)) {
+
+				System.out.println(i + " " + "is a Prime number");
+			}
+		}
+
+	}
 }
