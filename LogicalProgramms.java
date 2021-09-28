@@ -4,36 +4,19 @@ import java.util.Scanner;
 
 public class LogicalProgramms {
 
-	public static void reverseNumber(int number) {
-
-		if (number < 10) {
-
-			// prints the same number if the number is less than 10
-
-			System.out.println(number);
-
-			return;
-
-		} else {
-
-			System.out.print(number % 10);
-
-			reverseNumber(number / 10);
-		}
-	}
-
 	public static void main(String[] args) {
 
-		System.out.print(" Enter the number that you want to reverse : ");
+		char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789".toCharArray();
+		int max = 100000000;
+		int random = (int) (Math.random() * max);
+		StringBuffer sb = new StringBuffer();
 
-		Scanner sc = new Scanner(System.in);
+		while (random > 0) {
+			sb.append(chars[random % chars.length]);
+			random /= chars.length;
+		}
 
-		int num = sc.nextInt();
-
-		System.out.print(" The reverse of the given number is : ");
-
-		// method calling
-
-		reverseNumber(num);
+		String couponCode = sb.toString();
+		System.out.println("Coupon Code: " + couponCode);
 	}
 }
